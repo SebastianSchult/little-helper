@@ -1,0 +1,37 @@
+# Xcode
+*.xcodeproj/
+*.xcuserstate
+xcuserdata/
+*.xcworkspace/xcuserdata/
+DerivedData/
+build/
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# SPM
+.build/
+.swiftpm/
+*.resolved
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# Secrets / Config
+*.xcconfig
+.env
+Config.local.xcconfig
+
+# Logs
+*.log
+
+# Editor
+.idea/
+*.swp
+*.swo

@@ -1,0 +1,46 @@
+name: little helper
+options:
+  bundleIdPrefix: com.sebastianschult
+  deploymentTarget:
+    macOS: "14.0"
+  defaultConfig: Debug
+  xcodeVersion: "16"
+
+targets:
+  little helper:
+    type: application
+    platform: macOS
+    sources:
+      - path: src
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sebastianschult.little-helper
+        SWIFT_VERSION: "5.9"
+        MACOSX_DEPLOYMENT_TARGET: "14.0"
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: ""
+        INFOPLIST_FILE: Info.plist
+        CODE_SIGN_ENTITLEMENTS: little helper.entitlements
+        ENABLE_HARDENED_RUNTIME: YES
+    info:
+      path: Info.plist
+      properties:
+        CFBundleName: little helper
+        CFBundleDisplayName: little helper
+        CFBundleIdentifier: com.sebastianschult.little-helper
+        CFBundleVersion: "1"
+        CFBundleShortVersionString: "0.1.0"
+        LSUIElement: true
+        NSMicrophoneUsageDescription: "little helper benötigt Mikrofon-Zugriff für die Sprachaufnahme."
+        NSPrincipalClass: NSApplication
+    dependencies:
+      - package: WhisperKit
+      - package: KeyboardShortcuts
+
+packages:
+  WhisperKit:
+    url: https://github.com/argmaxinc/WhisperKit
+    from: "0.9.0"
+  KeyboardShortcuts:
+    url: https://github.com/sindresorhus/KeyboardShortcuts
+    from: "2.0.0"
