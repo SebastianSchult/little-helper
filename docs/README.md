@@ -2,10 +2,8 @@
 
 Projektdokumentation für little helper.
 
-## Contents
+## Inhalt
 
-- `permissions-setup.md` — Anleitung: Mikrofon + Accessibility Permissions einrichten (wird beim Onboarding gezeigt)
-- `model-sizes.md` — Übersicht Whisper-Modelle: Größe, Genauigkeit, Geschwindigkeit
-- `distribution.md` — Build, Notarisierung und DMG-Erstellung
-
-Dateien werden ergänzt sobald die jeweiligen Phasen abgeschlossen sind.
+- [permissions-setup.md](permissions-setup.md) — Schritt-für-Schritt: Mikrofon + Accessibility-Berechtigung einrichten
+- [model-sizes.md](model-sizes.md) — Whisper-Modelle im Vergleich: Größe, Genauigkeit, Geschwindigkeit, Empfehlung
+- `distribution.md` — Build, Notarisierung und DMG-Erstellung *(folgt mit Phase 5A)*

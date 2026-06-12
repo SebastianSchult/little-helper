@@ -20,10 +20,11 @@ src/
 │
 ├── Input/
 │   ├── HotkeyManager.swift      ← Globaler Hotkey (KeyboardShortcuts)
-│   └── TextInserter.swift       ← AXUIElement + Clipboard Fallback
+│   └── TextInserter.swift       ← NSPasteboard + CGEvent ⌘V
 │
 ├── Enhancement/
-│   └── AIEnhancer.swift         ← Regelbasiert + Ollama (Phase 4)
+│   ├── AIEnhancer.swift         ← Füllwort-Filter + Interpunktion (regelbasiert)
+│   └── OllamaEnhancer.swift     ← Grammatikkorrektur via localhost Ollama
 │
 └── UI/
     ├── RecordingOverlay.swift   ← Floating NSPanel

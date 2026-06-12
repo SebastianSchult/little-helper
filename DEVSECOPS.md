@@ -44,5 +44,5 @@ xcrun stapler staple ./build/export/little\ helper.app
 ## Model Management
 
 - WhisperKit-Modelle landen in `~/Library/Application Support/little-helper/models/`
-- Beim ersten Start wird `openai/whisper-tiny` automatisch heruntergeladen (~150MB)
+- Beim ersten Start wird `openai_whisper-tiny` automatisch heruntergeladen (~150MB)
 - Größere Modelle auf User-Anfrage via Settings

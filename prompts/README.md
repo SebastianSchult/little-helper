@@ -1,11 +1,14 @@
 # prompts/
 
-Wiederverwendbare Prompts für little helper.
+Prompts für little helper's KI-Enhancement-Stufe.
 
-## Geplante Inhalte (Phase 4)
+## Inhalt
 
-- `filler-word-removal.md` — System-Prompt für Ollama: Füllwörter entfernen ohne Inhalte zu verändern
-- `grammar-correction.md` — System-Prompt für Ollama: Grammatik und Interpunktion korrigieren
-- `transcription-cleanup.md` — Kombinierter Cleanup-Prompt für gesprochene Texte
+- [grammar-correction.md](grammar-correction.md) — Ollama-Prompt für Grammatik- und Interpunktionskorrektur (verwendet in `OllamaEnhancer.swift`)
 
-Prompts werden in Phase 4 (AI Enhancement) entwickelt und hier versioniert.
+## Kontext
+
+little helper hat zwei Enhancement-Stufen:
+
+1. **Regelbasiert** (`AIEnhancer.swift`) — Füllwort-Filter + Interpunktion, immer lokal, kein Prompt nötig
+2. **Ollama** (`OllamaEnhancer.swift`) — optionale LLM-Grammatikkorrektur via localhost:11434, konfigurierbar in Settings
