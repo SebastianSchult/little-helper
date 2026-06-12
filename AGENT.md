@@ -127,6 +127,12 @@ src/
 - Accessibility permission: explain clearly why it's needed before requesting.
 - No outbound network calls after initial model download.
 
+## Git-Workflow (Pflicht)
+
+- Nach jeder abgeschlossenen Änderung: `git add` → `git commit` → `git push`.
+- Nur committen wenn der Stand lauffähig ist — kein halbfertiger Code.
+- Remote: https://github.com/SebastianSchult/little-helper
+
 ## Deployment Rules
 
 - Distribution: direct DMG or notarized .app — no App Store (Accessibility API requires entitlements incompatible with sandbox).

@@ -25,6 +25,12 @@
 - Keine großflächigen Rewrites ohne klare Begründung.
 - Wenn mehrere Wege möglich sind, die sicherste und wartbarste Option bevorzugen.
 
+## Git-Workflow (Pflicht)
+
+- Nach jeder abgeschlossenen Änderung: `git add` → `git commit` → `git push`.
+- Kein unfertiges oder halb-funktionierendes Commit — nur wenn der Stand lauffähig ist.
+- Commit-Message: präzise, auf Englisch, mit `Co-Authored-By`-Zeile.
+
 ## Coding Standards
 
 - Swift 5.9+, SwiftUI, strikte Typisierung, keine Force-Unwraps.
