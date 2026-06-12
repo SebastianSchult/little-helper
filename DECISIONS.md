@@ -20,6 +20,8 @@
 | 2026-06-12 | Ollama-Default: llama3.2:3b | Schnellste Option mit gutem Deutsch-Support (~2GB, ~1-2s Latenz); deepseek-r1:7b zu langsam (Reasoning-Modell) | User muss Modell einmalig pullen | Accepted |
 | 2026-06-12 | Ollama-Prompt: CRITICAL-Direktive für Zielsprache | llama3.2:3b antwortet standardmäßig in der Prompt-Sprache (Englisch) — explizite Anweisung nötig | Prompt muss bei Modellwechsel getestet werden | Accepted |
 | 2026-06-12 | xcodegen nach neuen Swift-Dateien neu generieren | `.xcodeproj` ist statisch; neue Dateien in `src/` brauchen `xcodegen generate` um ins Build aufgenommen zu werden | Workflow-Schritt nach neuen Dateien | Accepted |
+| 2026-06-12 | Onboarding nur beim ersten Start (`hasCompletedOnboarding` UserDefaults) | Berechtigungs-Dialoge ohne Kontext verwirren neue User | Folgestarts unverändert schnell | Accepted |
+| 2026-06-12 | Accessibility-Polling via `task(id: step)` async-Loop statt Timer | Kein Retain Cycle, automatisches Cancel beim Step-Wechsel, idiomatisches Swift Concurrency | — | Accepted |
 | 2026-06-12 | Whisper Pre-load beim App-Start statt lazy beim ersten Hotkey | Erste Aufnahme hatte merkliche Verzögerung durch Modell-Load; bei App-Start ist der User noch nicht aktiv, daher guter Zeitpunkt | `modelState` kann beim Hotkey-Press `.loading` sein — Race Condition via Poll-Wait gelöst | Accepted |
 | 2026-06-12 | `.xcodeproj` nicht in Git — nur `project.yml` | `.xcodeproj` ist xcodegen-Artefakt; `project.yml` ist Source of Truth — beide committen führt zu Merge-Konflikten | `xcodegen generate` nach Clone nötig | Accepted |
 

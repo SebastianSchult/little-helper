@@ -45,7 +45,7 @@
 ### Phase 5 — Stabilisierung & Distribution (Planned)
 
 - [ ] 15. (A) Notarized DMG: create-dmg + xcrun notarytool, verteilbares Installer-Package
-- [ ] 16. (B) Onboarding-Flow: Schritt-für-Schritt-Anleitung für Mic- + Accessibility-Permission beim ersten Start
+- [x] 16. (B) Onboarding-Flow: Schritt-für-Schritt-Anleitung für Mic- + Accessibility-Permission beim ersten Start (2026-06-12)
 - [x] 17. (C) Whisper Pre-load: Modell beim App-Start laden statt beim ersten Hotkey — erste Aufnahme sofort bereit (2026-06-12)
 
 ### Phase 4 — AI Enhancement (Planned)
