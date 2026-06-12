@@ -24,6 +24,8 @@
 | 2026-06-12 | Accessibility-Polling via `task(id: step)` async-Loop statt Timer | Kein Retain Cycle, automatisches Cancel beim Step-Wechsel, idiomatisches Swift Concurrency | — | Accepted |
 | 2026-06-12 | Whisper Pre-load beim App-Start statt lazy beim ersten Hotkey | Erste Aufnahme hatte merkliche Verzögerung durch Modell-Load; bei App-Start ist der User noch nicht aktiv, daher guter Zeitpunkt | `modelState` kann beim Hotkey-Press `.loading` sein — Race Condition via Poll-Wait gelöst | Accepted |
 | 2026-06-12 | `.xcodeproj` nicht in Git — nur `project.yml` | `.xcodeproj` ist xcodegen-Artefakt; `project.yml` ist Source of Truth — beide committen führt zu Merge-Konflikten | `xcodegen generate` nach Clone nötig | Accepted |
+| 2026-06-12 | Keychain-Profil für notarytool statt CLI-Credentials | `notarytool store-credentials` speichert App-Passwort im Keychain — kein Geheimnis in Skript oder Env | Einmaliges Setup nötig | Accepted |
+| 2026-06-12 | `create-dmg` statt `hdiutil` direkt | `create-dmg` erzeugt Drag-to-Applications DMG mit korrektem Layout ohne manuelles Scripting | Brew-Abhängigkeit | Accepted |
 
 ## Decision Template
 

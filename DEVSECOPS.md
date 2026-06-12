@@ -9,26 +9,15 @@
 
 ## Distribution
 
+Vollständiger Prozess in einem Skript:
+
 ```bash
-# Archive
-xcodebuild -scheme "little helper" -configuration Release archive \
-  -archivePath ./build/little-helper.xcarchive
-
-# Export .app
-xcodebuild -exportArchive \
-  -archivePath ./build/little-helper.xcarchive \
-  -exportPath ./build/export \
-  -exportOptionsPlist ExportOptions.plist
-
-# Notarize
-xcrun notarytool submit ./build/export/little\ helper.app \
-  --apple-id "schult.sebastian@googlemail.com" \
-  --team-id TEAM_ID \
-  --wait
-
-# Staple
-xcrun stapler staple ./build/export/little\ helper.app
+TEAM_ID=DEIN_TEAM_ID ./scripts/build-dmg.sh
 ```
+
+Erstellt: `build/little-helper-VERSION.dmg` (signiert, notarisiert, gestapelt).
+
+Voraussetzungen und Troubleshooting → [docs/distribution.md](docs/distribution.md)
 
 ## Environments
 
