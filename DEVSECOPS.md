@@ -9,14 +9,19 @@
 
 ## Distribution
 
-Vollständiger Prozess in einem Skript:
+**Ohne Apple Developer Account** (Eigenbedarf / Freunde):
+
+```bash
+./scripts/build-local.sh
+```
+
+**Mit Apple Developer Account** (breite Distribution, kein Gatekeeper-Dialog):
 
 ```bash
 TEAM_ID=DEIN_TEAM_ID ./scripts/build-dmg.sh
 ```
 
-Erstellt: `build/little-helper-VERSION.dmg` (signiert, notarisiert, gestapelt).
-
+Beide Skripte erstellen `build/little-helper-VERSION.dmg`.
 Voraussetzungen und Troubleshooting → [docs/distribution.md](docs/distribution.md)
 
 ## Environments

@@ -1,6 +1,32 @@
 # Distribution
 
-Anleitung für Build, Signierung, Notarisierung und DMG-Erstellung von little helper.
+## Welcher Weg passt?
+
+| Szenario | Skript | Voraussetzung |
+|----------|--------|---------------|
+| Nur für dich selbst | `./scripts/build-local.sh` | xcodegen |
+| Teilen mit Freunden | `./scripts/build-local.sh` | xcodegen — Empfänger klickt einmalig Rechtsklick → Öffnen |
+| Breite Distribution (kein Gatekeeper-Dialog) | `./scripts/build-dmg.sh` | Apple Developer Account (99 €/Jahr) |
+
+---
+
+## Lokaler Build (kein Developer Account)
+
+```bash
+./scripts/build-local.sh
+```
+
+Erstellt `build/little-helper-VERSION.dmg` — ad-hoc signiert, kein notarytool.
+
+**Installation:**
+1. DMG öffnen
+2. App in den Applications-Ordner ziehen
+
+**Erster Start auf einem anderen Mac:**
+Gatekeeper zeigt eine Warnung weil die App nicht notarisiert ist.
+Einmalig umgehen: Rechtsklick auf die App → **Öffnen** → im Dialog bestätigen.
+
+---
 
 ## Voraussetzungen
 
