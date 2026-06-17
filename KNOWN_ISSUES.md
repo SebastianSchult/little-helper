@@ -10,6 +10,10 @@
 | Erster Start: Modell-Download blockiert UI | Erster Hotkey-Press startet Download (~150 MB) — App zeigt "Transkribiere…" für 1–3 min | Nach Download gecacht, alle Folgestarts sofort bereit | Sebastian | Known Constraint |
 | No App Store Distribution | Accessibility API inkompatibel mit App Sandbox | DMG + Notarisierung | Sebastian | Accepted |
 
+| Clipboard-Doppelverwaltung | `TextInserter.swift` und `AppState.postCmdV()` managen Clipboard separat — potentieller Konflikt | Bisher kein reproduzierbarer Bug, aber unordentlich | Sebastian | Open |
+| Kein Download-Fortschritt beim ersten Modell-Load | User sieht "Transkribiere…" für 1–3 min ohne Feedback während WhisperKit das Modell herunterlädt | — | Sebastian | Open |
+| Fehler-State ohne Auto-Reset | Nach `.error` bleibt App hängen bis nächster Hotkey-Press | Hotkey erneut drücken | Sebastian | Open |
+
 ## Notes
 
 - Keep this list current and actionable.

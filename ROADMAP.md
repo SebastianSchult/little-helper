@@ -48,6 +48,14 @@
 - [x] 16. (B) Onboarding-Flow: Schritt-für-Schritt-Anleitung für Mic- + Accessibility-Permission beim ersten Start (2026-06-12)
 - [x] 17. (C) Whisper Pre-load: Modell beim App-Start laden statt beim ersten Hotkey — erste Aufnahme sofort bereit (2026-06-12)
 
+### Backlog — Verbesserungen (priorisiert, noch nicht geplant)
+
+- [ ] 18. (P1) Download-Progress beim ersten Modell-Load: WhisperKit-Callback anbinden, Overlay/MenuBar zeigt Fortschritt statt "Transkribiere…"
+- [ ] 19. (P2) LSApplicationCategory in project.yml setzen — entfernt Build-Warning
+- [ ] 20. (P3) Fehler-Auto-Reset: nach .error-State automatisch nach ~5s zurück zu .idle
+- [ ] 21. (P3) Clipboard-Konsolidierung: TextInserter.swift und AppState.postCmdV() zu einer einzigen Insertion-Methode zusammenführen
+- [ ] 22. (P4) Version auf 1.0.0 setzen nach erstem stabilen Release
+
 ### Phase 4 — AI Enhancement (Planned)
 
 - [x] 11. AIEnhancer: regelbasierter Füllwort-Filter (äh, ähm, uh, um, …)
