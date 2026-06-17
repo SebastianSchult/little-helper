@@ -83,14 +83,14 @@ struct OnboardingView: View {
                 icon: "mic.fill",
                 iconColor: .accentColor,
                 title: "Willkommen bei\nlittle helper",
-                body: "little helper transkribiert deine Sprache lokal auf deinem Mac — offline, schnell, ohne Cloud.\n\nIn zwei Schritten einrichten."
+                message: "little helper transkribiert deine Sprache lokal auf deinem Mac — offline, schnell, ohne Cloud.\n\nIn zwei Schritten einrichten."
             )
         case .accessibility:
             OnboardingCard(
                 icon: "accessibility",
                 iconColor: accessibilityGranted ? .green : .orange,
                 title: "Bedienungshilfen",
-                body: "Damit little helper Text per ⌘V einfügen kann, braucht die App Zugriff auf die Bedienungshilfen.\n\nÖffne System Settings und aktiviere little helper unter Datenschutz → Bedienungshilfen.",
+                message: "Damit little helper Text per ⌘V einfügen kann, braucht die App Zugriff auf die Bedienungshilfen.\n\nÖffne System Settings und aktiviere little helper unter Datenschutz → Bedienungshilfen.",
                 badge: accessibilityGranted ? "Erteilt" : nil,
                 actionLabel: accessibilityGranted ? nil : "System Settings öffnen",
                 actionHandler: openAccessibilitySettings
@@ -100,7 +100,7 @@ struct OnboardingView: View {
                 icon: "mic.fill",
                 iconColor: micGranted ? .green : .red,
                 title: "Mikrofon",
-                body: "little helper benötigt Zugriff auf dein Mikrofon um Sprachaufnahmen zu machen.\n\nDie Berechtigung kann jederzeit in den Systemeinstellungen widerrufen werden.",
+                message: "little helper benötigt Zugriff auf dein Mikrofon um Sprachaufnahmen zu machen.\n\nDie Berechtigung kann jederzeit in den Systemeinstellungen widerrufen werden.",
                 badge: micGranted ? "Erteilt" : nil,
                 actionLabel: micGranted ? nil : "Mikrofon-Zugriff erlauben",
                 actionHandler: requestMicrophone
@@ -110,7 +110,7 @@ struct OnboardingView: View {
                 icon: "checkmark.circle.fill",
                 iconColor: .green,
                 title: "Alles bereit",
-                body: "Drücke ⌘⇧Space um eine Aufnahme zu starten.\nDas Icon in der Menu Bar zeigt den Status."
+                message: "Drücke ⌘⇧Space um eine Aufnahme zu starten.\nDas Icon in der Menu Bar zeigt den Status."
             )
         }
     }
@@ -202,7 +202,7 @@ private struct OnboardingCard: View {
     let icon: String
     let iconColor: Color
     let title: String
-    let body: String
+    let message: String
     var badge: String? = nil
     var actionLabel: String? = nil
     var actionHandler: (() -> Void)? = nil
@@ -227,7 +227,7 @@ private struct OnboardingCard: View {
                 .font(.title2.bold())
                 .multilineTextAlignment(.center)
 
-            Text(body)
+            Text(message)
                 .font(.body)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
