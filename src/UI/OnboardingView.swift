@@ -66,10 +66,15 @@ struct OnboardingView: View {
         .frame(width: 480, height: 420)
         .task(id: step) {
             guard step == .accessibility else { return }
-            while !accessibilityGranted {
+            while true {
+                let trusted = AXIsProcessTrusted()
+                if trusted { accessibilityGranted = true; break }
                 try? await Task.sleep(for: .milliseconds(500))
-                accessibilityGranted = AXIsProcessTrusted()
             }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
+            if step == .accessibility { accessibilityGranted = AXIsProcessTrusted() }
+            if step == .microphone    { micGranted = AVCaptureDevice.authorizationStatus(for: .audio) == .authorized }
         }
     }
 
