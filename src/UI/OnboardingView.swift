@@ -95,10 +95,13 @@ struct OnboardingView: View {
                 icon: "accessibility",
                 iconColor: accessibilityGranted ? .green : .orange,
                 title: "Bedienungshilfen",
-                message: "Damit little helper Text per ⌘V einfügen kann, braucht die App Zugriff auf die Bedienungshilfen.\n\nÖffne System Settings und aktiviere little helper unter Datenschutz → Bedienungshilfen.",
+                message: "Damit little helper Text per ⌘V einfügen kann, braucht die App Zugriff auf die Bedienungshilfen.\n\nSystemeinstellungen → Datenschutz & Sicherheit → Bedienungshilfen → little helper aktivieren.",
                 badge: accessibilityGranted ? "Erteilt" : nil,
-                actionLabel: accessibilityGranted ? nil : "System Settings öffnen",
-                actionHandler: openAccessibilitySettings
+                actionLabel: "System Settings öffnen",
+                actionHandler: openAccessibilitySettings,
+                secondaryActionLabel: accessibilityGranted ? nil : "Erneut prüfen",
+                secondaryActionHandler: recheckAccessibility,
+                footnote: accessibilityGranted ? nil : "Du kannst auch ohne diese Berechtigung fortfahren und sie später in den Systemeinstellungen vergeben."
             )
         case .microphone:
             OnboardingCard(
@@ -163,9 +166,8 @@ struct OnboardingView: View {
 
     private var canProceed: Bool {
         switch step {
-        case .welcome, .done:  return true
-        case .accessibility:   return accessibilityGranted
-        case .microphone:      return micGranted
+        case .welcome, .done, .accessibility: return true
+        case .microphone:                     return micGranted
         }
     }
 
@@ -194,6 +196,10 @@ struct OnboardingView: View {
         }
     }
 
+    private func recheckAccessibility() {
+        accessibilityGranted = AXIsProcessTrusted()
+    }
+
     private func requestMicrophone() {
         Task {
             micGranted = await AVCaptureDevice.requestAccess(for: .audio)
@@ -211,6 +217,9 @@ private struct OnboardingCard: View {
     var badge: String? = nil
     var actionLabel: String? = nil
     var actionHandler: (() -> Void)? = nil
+    var secondaryActionLabel: String? = nil
+    var secondaryActionHandler: (() -> Void)? = nil
+    var footnote: String? = nil
 
     var body: some View {
         VStack(spacing: 16) {
@@ -239,10 +248,26 @@ private struct OnboardingCard: View {
                 .fixedSize(horizontal: false, vertical: true)
                 .frame(maxWidth: 340)
 
-            if let label = actionLabel {
-                Button(label) { actionHandler?() }
-                    .buttonStyle(.bordered)
-                    .padding(.top, 4)
+            if actionLabel != nil || secondaryActionLabel != nil {
+                HStack(spacing: 12) {
+                    if let label = actionLabel {
+                        Button(label) { actionHandler?() }
+                            .buttonStyle(.bordered)
+                    }
+                    if let label = secondaryActionLabel {
+                        Button(label) { secondaryActionHandler?() }
+                            .buttonStyle(.bordered)
+                    }
+                }
+                .padding(.top, 4)
+            }
+
+            if let footnote {
+                Text(footnote)
+                    .font(.caption)
+                    .foregroundStyle(.tertiary)
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: 340)
             }
         }
         .padding(.horizontal, 48)
